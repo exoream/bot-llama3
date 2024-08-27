@@ -6,6 +6,10 @@ require("dotenv").config();
 
 const client = new Client({
   authStrategy: new LocalAuth(),
+  puppeteer: {
+    headless: true,
+    args: ["--no-sandbox" ],
+  },
 });
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
